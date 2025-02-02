@@ -6,50 +6,85 @@
     <title>Создать историю</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
-        button { padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
-        .main { width: 100%; box-shadow: 0 4px 20px -6px #222; padding: 30px; ; background: white}
-        .page { display: flex; align-items: center; justify-content: center; height: 100vh; }
-        .btn { background-color: #007bff; color: aliceblue; border-radius: 15px; }
+        :root {
+            --bg-color: #ffffff; /* Светлый фон */
+            --text-color: #000000; /* Темный текст */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        button {
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .main {
+            width: 100%;
+            box-shadow: 0 4px 20px -6px #222;
+            padding: 30px;
+            background-color: var(--bg-color);
+        }
+
+        .page {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .btn {
+            background-color: #007bff;
+            color: aliceblue;
+            border-radius: 15px;
+        }
     </style>
 </head>
 <body class="page">
-    <div class="main">
-        <h2><b>Размести сторис в Telegram и получи вознаграждение до 100 000 рублей на карту</b></h2>
-        <p>🔥</p>
-        <p>Если от тебя придет селлер (клиент) и купит продвижение на AMAZON</p>
-        <button onclick="publishStory()" class="btn">Поделиться в один клик</button>
-    </div>
+<div class="main">
+    <h2><b>Размести сторис в Telegram и получи вознаграждение до 100 000 рублей на карту</b></h2>
+    <p>🔥</p>
+    <p>Если от тебя придет селлер (клиент) и купит продвижение на AMAZON</p>
+    <button onclick="publishStory()" class="btn">Поделиться в один клик</button>
+</div>
 
-    <script>
-        function publishStory() {
-            const tg = window.Telegram.WebApp;
-            const isDarkMode = tg.themeParams.isDark;  // Проверяем, используется ли темная тема
+<script>
+    function publishStory() {
+        const tg = window.Telegram.WebApp;
+        const isDarkMode = tg.themeParams.isDark;  // Проверяем, используется ли темная тема
 
-            if (isDarkMode) {
-                document.body.style.backgroundColor = "#333";
-                document.body.style.color = "#fff";
-            } else {
-                document.body.style.backgroundColor = "#fff";
-                document.body.style.color = "#000";
-            }
-            const userId = tg.initDataUnsafe?.user?.id || "unknown";  // Получаем ID пользователя, если доступно
-            const media_url = "https://i.postimg.cc/PxBStYxC/Instagram-story-1-1.png";  // URL изображения для сторис
-            const text = `Выйти на рынок США AMAZON https://t.me/share_my_story_bot?start=CANAL_${userId}`;  // Текст для истории
-
-            if (!text.trim()) {
-                alert("Введите текст для истории!");
-                return;
-            }
-
-            // Составляем ссылку для Telegram
-            const params = {
-                text: encodeURIComponent(text)
-            };
-
-            // Метод shareToStory из WebApp API для публикации истории
-            tg.shareToStory(media_url, params);
+        if (isDarkMode) {
+            document.body.style.backgroundColor = "#333";
+            document.body.style.color = "#fff";
+        } else {
+            document.body.style.backgroundColor = "#fff";
+            document.body.style.color = "#000";
         }
-    </script>
+        const userId = tg.initDataUnsafe?.user?.id || "unknown";  // Получаем ID пользователя, если доступно
+        const media_url = "https://i.postimg.cc/PxBStYxC/Instagram-story-1-1.png";  // URL изображения для сторис
+        const text = `Выйти на рынок США AMAZON https://t.me/share_my_story_bot?start=CANAL_${userId}`;  // Текст для истории
+
+        if (!text.trim()) {
+            alert("Введите текст для истории!");
+            return;
+        }
+
+        // Составляем ссылку для Telegram
+        const params = {
+            text: encodeURIComponent(text)
+        };
+
+        // Метод shareToStory из WebApp API для публикации истории
+        tg.shareToStory(media_url, params);
+    }
+</script>
 </body>
 </html>
