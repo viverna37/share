@@ -76,14 +76,9 @@
             alert("Введите текст для истории!");
             return;
         }
-
-        // Составляем ссылку для Telegram
-        const params = {
-            text: encodeURIComponent(text)
-        };
-
+        
         // Метод shareToStory из WebApp API для публикации истории
-        tg.shareToStory(media_url, params);
+        tg.shareToStory(media_url, { text });
     }
 </script>
 </body>
