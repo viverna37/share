@@ -9,16 +9,40 @@
         body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
         textarea { width: 90%; height: 100px; margin-bottom: 10px; }
         button { padding: 10px; background: #007bff; color: white; border: none; cursor: pointer; }
+        .main{width: 100%;   box-shadow: 0 4px 20px -6px #222; padding: 30px;}
+        .page{display: flex; align-items: center; justify-content: center; height: 100vh;}
+        .btn{background-color: #007bff; color: aliceblue; border-radius: 15px;}
     </style>
 </head>
-<body>
+<body class="page">
+    <div class="main">
+        <h2 class="device-width"><b>Размести сторис в Telegram и получи вознаграждение до 100 000 рублей на карту</b></h2>
+        <p class="device-width">🔥</p>
+        <p class="device-width">Если от тебя придет селлер (клиент) и купит продвижение на AMAZON</p>
+        <button onclick="publishStory()" class="btn">Поделиться в один клик</button>
+    </div>
+
+<!-- 
     <h2>Введите текст истории</h2>
     <textarea id="story" placeholder="Напишите что-нибудь..."></textarea>
     <button onclick="publishStory()">Опубликовать</button>
 
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
     <script>
         function publishStory() {
-            let text = document.getElementById("story").value;
+            let text = "123"
             if (!text.trim()) {
                 alert("Введите текст!");
                 return;
@@ -27,5 +51,6 @@
             window.location.href = url;
         }
     </script>
+
 </body>
 </html>
