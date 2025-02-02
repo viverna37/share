@@ -24,6 +24,15 @@
     <script>
         function publishStory() {
             const tg = window.Telegram.WebApp;
+            const isDarkMode = tg.themeParams.isDark;  // Проверяем, используется ли темная тема
+
+            if (isDarkMode) {
+                document.body.style.backgroundColor = "#333";
+                document.body.style.color = "#fff";
+            } else {
+                document.body.style.backgroundColor = "#fff";
+                document.body.style.color = "#000";
+            }
             const userId = tg.initDataUnsafe?.user?.id || "unknown";  // Получаем ID пользователя, если доступно
             const media_url = "https://i.postimg.cc/PxBStYxC/Instagram-story-1-1.png";  // URL изображения для сторис
             const text = `Выйти на рынок США AMAZON https://t.me/share_my_story_bot?start=CANAL_${userId}`;  // Текст для истории
